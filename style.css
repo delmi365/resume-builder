@@ -1,0 +1,109 @@
+/* ===== 应用外壳（浅色主题） ===== */
+:root{
+  --bg:#f4f6f9; --panel:#ffffff; --line:#e4e8ee; --text:#1f2329;
+  --muted:#6b7280; --accent:#2563eb; --accent-soft:#eaf1fe; --danger:#e5484d;
+  --radius:10px; --shadow:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:14px/1.5 "Microsoft YaHei","PingFang SC","Helvetica Neue",Arial,sans-serif;}
+h1,h2,h3,p{margin:0}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+
+/* 顶栏 */
+.topbar{height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:0 18px;background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;
+  display:grid;place-items:center;font-weight:700;font-size:15px;flex:none}
+.brand b{font-size:16px;letter-spacing:.5px}
+.brand em{font-style:normal;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+/* 按钮 */
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;cursor:pointer;
+  color:var(--text);transition:.15s;white-space:nowrap;font-size:13px}
+.btn:hover{border-color:#c7cfda;background:#fafbfc}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.ghost{background:#fff}
+.btn.tiny{padding:4px 9px;font-size:12px;border-radius:7px}
+.btn.danger{color:var(--danger);border-color:#f3d3d4}
+.btn.danger:hover{background:#fdf2f2}
+.icon-btn{border:none;background:transparent;cursor:pointer;color:var(--muted);width:24px;height:24px;
+  border-radius:6px;line-height:1;display:grid;place-items:center;font-size:13px}
+.icon-btn:hover{background:#eef1f5;color:var(--text)}
+
+/* 布局 */
+.app{display:grid;grid-template-columns:minmax(360px,1fr) minmax(420px,1.15fr);gap:16px;
+  padding:16px;height:calc(100vh - 56px);align-items:stretch}
+.pane{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  display:flex;flex-direction:column;min-height:0;box-shadow:var(--shadow)}
+.pane-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 14px;border-bottom:1px solid var(--line);flex:none;flex-wrap:wrap}
+.pane-hd h2{font-size:14px;font-weight:700}
+.pane-bd{overflow:auto;padding:14px;flex:1;min-height:0}
+
+/* 编辑区卡片 */
+.card{border:1px solid var(--line);border-radius:var(--radius);margin-bottom:12px;background:#fff;overflow:hidden}
+.card.off{opacity:.5}
+.card-hd{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#fafbfc;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.card-hd .sec-title{flex:1;min-width:120px;border:1px solid transparent;background:transparent;
+  font-weight:700;font-size:13.5px;padding:4px 6px;border-radius:6px}
+.card-hd .sec-title:hover{border-color:var(--line);background:#fff}
+.card-bd{padding:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.field{display:flex;flex-direction:column;gap:3px;min-width:0}
+.field.wide{grid-column:1/-1}
+.field label{font-size:11.5px;color:var(--muted)}
+.field input,.field textarea,.field select{border:1px solid var(--line);border-radius:7px;padding:6px 8px;
+  background:#fff;width:100%;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field textarea{resize:vertical;min-height:64px;line-height:1.5}
+.switch{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);cursor:pointer;user-select:none}
+
+/* 条目 */
+.item{border:1px dashed #dde2e9;border-radius:8px;padding:9px;margin-bottom:9px;background:#fcfdfe}
+.item-hd{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.item-hd .tag{font-size:11px;color:var(--muted);background:#eef1f5;border-radius:5px;padding:2px 6px}
+.item-hd .sp{flex:1}
+.sub-add{margin-top:2px}
+
+/* 头像 */
+.avatar-row{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.avatar-box{width:62px;height:62px;border-radius:50%;overflow:hidden;background:#f0f2f5;
+  display:grid;place-items:center;color:#b6bcc6;font-size:11px;border:1px solid var(--line);flex:none}
+.avatar-box img{width:100%;height:100%;object-fit:cover}
+
+/* 预览区 */
+.preview-toolbar{gap:14px}
+.tb-group{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
+.tb-group select,.tb-group input[type=range]{border:1px solid var(--line);border-radius:7px;padding:4px 6px;background:#fff}
+.tb-group input[type=range]{width:92px;padding:0;accent-color:var(--accent)}
+.tb-group .val{min-width:34px;color:var(--text);font-size:12px}
+.swatches{display:flex;gap:4px}
+.sw{width:17px;height:17px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #d8dee7;cursor:pointer;padding:0}
+.sw.on{box-shadow:0 0 0 2px var(--text)}
+input[type=color]{width:26px;height:24px;padding:0;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
+
+.preview-scroll{flex:1;overflow:auto;background:#eef1f5;padding:20px;display:flex;justify-content:center;align-items:flex-start}
+.preview-scale{transform-origin:top center;transition:transform .12s}
+.page{width:210mm;min-height:297mm;padding:14mm 15mm;background:#fff;box-shadow:0 4px 18px rgba(16,24,40,.12);margin:0 auto}
+
+@media (max-width:1024px){
+  .app{grid-template-columns:1fr;height:auto}
+  .preview-scroll{max-height:none}
+}
+
+/* ===== 打印 / 导出 PDF ===== */
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff;height:auto}
+  .topbar,.editor-pane,.preview-toolbar{display:none !important}
+  .app{display:block;padding:0;height:auto}
+  .pane{border:none;box-shadow:none;background:#fff}
+  .preview-scroll{overflow:visible;padding:0;background:#fff;display:block}
+  .preview-scale{transform:none !important}
+  .page{box-shadow:none;margin:0;width:210mm;min-height:297mm}
+}
